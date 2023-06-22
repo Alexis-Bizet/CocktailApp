@@ -35,9 +35,8 @@ export default {
           .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
           .then(response => {
             const drink = response.data.drinks[0];
-            console.log(drink)
             const ingredients = [];
-            console.log(ingredients)
+            console.log(drink)
             for (let j = 1; j <= 15; j++) {
               const ingredient = drink[`strIngredient${j}`];
               const measure = drink[`strMeasure${j}`];
