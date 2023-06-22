@@ -77,6 +77,13 @@ button{
     cursor: pointer
 }
 
+.error-message{
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-top:100px
+}
 
 /* Rajout des medias queries*/
 
@@ -84,44 +91,35 @@ button{
   .cocktail-content {
     flex-direction: column;
     margin-top: 20px;
-  }; 
-}
-
-@media (max-width: 768px) {
+  }
+  
   img {
-    width:200px;
-    height:200px;
-    margin:0 auto;
-  };  
-}
-
-@media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
   .cocktail-container {
-    margin-left: 0px
-  } 
-}
-
-@media (max-width: 768px) {
+    margin-left: 0px;
+  }
+  
   h3 {
     font-weight: bold;
     font-size: 2rem;
-    margin-right: 0px;  
+    margin-right: 0px;
   }
-}
-
-@media (max-width: 768px) {
-  .list-ingredients{
+  
+  .list-ingredients {
     list-style-type: none;
     width: 300px;
   }
-}
-
-@media (max-width: 768px) {
-  li{
+  
+  li {
     margin: 0rem;
     font-weight: bold;
   }
 }
+
 
 
 

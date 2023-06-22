@@ -1,6 +1,9 @@
 <template>
   <div>
     <button @click="fetchCocktails">Une autre envie ?</button>
+      <div v-if="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
         <div class="cocktail-container" v-if="cocktails.length">
             <div v-for="cocktail in cocktails" :key="cocktail.idDrink" class="cocktail-content">
                 <h3>{{ cocktail.strDrink }}</h3>
@@ -21,11 +24,13 @@ import axios from "axios";
 export default {
   data() {
     return {
-      cocktails: []
+      cocktails: [],
+       errorMessage: ""
     };
   },
   mounted() {
     this.fetchCocktails();
+     this.errorMessage = ""; 
   },
   methods: {
     fetchCocktails() {
@@ -36,8 +41,8 @@ export default {
           .then(response => {
             const drink = response.data.drinks[0];
             const ingredients = [];
-            console.log(drink)
             for (let j = 1; j <= 15; j++) {
+              
               const ingredient = drink[`strIngredient${j}`];
               const measure = drink[`strMeasure${j}`];
 
@@ -55,7 +60,7 @@ export default {
             });
           })
           .catch(error => {
-            console.error(error);
+            this.errorMessage = "Une erreur s'est produite lors de la récupération des cocktails.";
           });
       }
     }
@@ -63,9 +68,3 @@ export default {
 };
 </script>
 
-
-<style scoped>
-
-
-
-</style>
